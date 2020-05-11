@@ -11,6 +11,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+	res.json({ hello: 'this is from ndp blog' });
+});
+
 app.get('/api/user/auth', auth, (req, res) => {
 	const { _id, email, firstname, lastname, role } = req.user;
 	res.status(200).json({
